@@ -3,17 +3,22 @@
 
 string_input = "Enter text: "
 
-if output:
-    output = open('inputter.txt','r')
-    print(output) # print what's already been entered first
-else:
-    output = open('inputter.txt','a')
-output.close()
+f = open('inputter.txt','a')
+f.close()
+
+f = open('inputter.txt','r')
+print(f.read()) # print what's already been entered first
+f.close()
 
 while True:
     inputter = input(string_input)
     if not inputter:
         break
-    output.open('inputter.txt','a')
-    output.write(inputter) # append new input
-    output.close()
+    
+    f = open('inputter.txt','a')
+    f.write(inputter) # append new input
+    f.close()
+
+    f = open('inputter.txt','r')
+    print(f.read()) # print new input
+    f.close()
